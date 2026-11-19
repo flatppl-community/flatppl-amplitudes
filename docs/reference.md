@@ -16,8 +16,8 @@ Lineshapes are complex amplitudes, not normalized probability densities.
 | [`clebschgordan`](#clebschgordan) | `j1`, `m1`, `j2`, `m2`, `j`, `m` | Integer-spin Clebsch–Gordan coefficient | nonnegative integer spins, integer projections |
 | [`clebschgordan_doublearg`](#clebschgordan_doublearg) | `two_j1`, `two_m1`, `two_j2`, `two_m2`, `two_j`, `two_m` | Clebsch–Gordan coefficient with doubled quantum numbers | nonnegative integer doubled spins, integer doubled projections |
 | [`ls_coupling`](#ls_coupling) | `two_j`, `two_j1`, `two_j2`, `two_l`, `two_s`, `two_lambda1`, `two_lambda2` | LS-to-helicity coupling | doubled spins and helicities; nonnegative even `two_l` |
-| [`wignerd_matrix`](#wignerd_matrix) | `j`, `cosbeta` | Integer-spin Wigner small-$d$ matrix | nonnegative integers, `interval(-1, 1)` |
-| [`wignerd_matrix_doublearg`](#wignerd_matrix_doublearg) | `two_j`, `cosbeta` | Wigner small-$d$ matrix with doubled spin | nonnegative integers, `interval(-1, 1)` |
+| [`wignerd_matrix`](#wignerd_matrix) | `j`, `cosbeta` | Integer-spin Wigner small $d$ matrix | nonnegative integers, `interval(-1, 1)` |
+| [`wignerd_matrix_doublearg`](#wignerd_matrix_doublearg) | `two_j`, `cosbeta` | Wigner small $d$ matrix with doubled spin | nonnegative integers, `interval(-1, 1)` |
 | [`twobody_phasespace`](#twobody_phasespace) | `sigma`, `ma`, `mb` | Analytically continued two-body phase-space factor | `posreals`, `nonnegreals`, `nonnegreals` |
 | [`resonance_multichannel_breitwigner`](#resonance_multichannel_breitwigner) | `sigma`, `m`, `gsq`, `mas`, `mbs`, `ls`, `ds` | Coupled-channel resonance amplitude | positive invariant mass squared and pole mass; aligned channel vectors |
 | [`resonance_bugg_breitwigner`](#resonance_bugg_breitwigner) | `sigma`, `m`, `width`, `sa`, `gamma` | Simplified Adler-zero resonance amplitude | positive `sigma`, `m`, `width`; real `sa`, `gamma`; `sa != m^2` |
@@ -91,7 +91,7 @@ Arguments:
 Rows and columns descend from $m=j$ to $m=-j$. Equivalent to [`wignerd_matrix_doublearg`](#wignerd_matrix_doublearg) with `two_j = 2*j`.
 Derivatives with respect to `cosbeta` are intended for the interior $-1<\mathrm{cosbeta}<1$.
 
-<a id="wignerd_matrix_doublearg"></a>**`wignerd_matrix_doublearg(two_j, cosbeta)`** — returns the small Wigner matrix for spin $j=\mathrm{two\_j}/2$.
+<a id="wignerd_matrix_doublearg"></a>**`wignerd_matrix_doublearg(two_j, cosbeta)`** — returns the small Wigner matrix for spin $`j=\mathrm{two\_j}/2`$.
 
 Arguments:
 
@@ -217,7 +217,7 @@ Arguments:
 - `P`: future-timelike real frame four-vector.
 - `child`: integer one or two, selecting the first- or second-child convention.
 
-Let $\epsilon=3-2\,\mathrm{child}$, $\phi=\mathrm{atan2}(\epsilon P_y,\epsilon P_x)$,
+Let $`\epsilon=3-2\,\mathrm{child}`$, $\phi=\mathrm{atan2}(\epsilon P_y,\epsilon P_x)$,
 and $\theta=\mathrm{atan2}(\sqrt{P_x^2+P_y^2},\epsilon P_z)$.
 The transformation is
 
