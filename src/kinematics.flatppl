@@ -20,12 +20,10 @@ _boost_factor(p, P, sign) = (
 )
 
 _boost(p, P, sign) = (
-    [
-        (P[1] * p[1] + sign * _spatial_dot(p, P)) / sqrt(mass_squared(P)),
-        p[2] + _boost_factor(p, P, sign) * P[2],
-        p[3] + _boost_factor(p, P, sign) * P[3],
-        p[4] + _boost_factor(p, P, sign) * P[4]
-    ]
+    cat(
+        [(P[1] * p[1] + sign * _spatial_dot(p, P)) / sqrt(mass_squared(P))],
+        [p[2], p[3], p[4]] .+ _boost_factor(p, P, sign) .* [P[2], P[3], P[4]]
+    )
 )
 
 boost_to_rest(p, P) = _boost(p, P, -1)
